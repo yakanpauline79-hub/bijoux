@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catalogue Bijoux</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: #faf9f7;
+      color: #333;
+    }
+
+    .catalogue {
+      padding: 60px 10%;
+      background: white;
+      text-align: center;
+    }
+
+    .catalogue h2 {
+      font-size: 34px;
+      margin-bottom: 40px;
+      color: #b38b59; /* doré */
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .item {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+    }
+
+    .item img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+    }
+
+    .info {
+      padding: 15px;
+    }
+
+    .info h3 {
+      font-size: 18px;
+      margin: 8px 0;
+      color: #444;
+    }
+
+    .info p {
+      color: #b38b59;
+      font-weight: bold;
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+
+    .info button {
+      background: #b38b59;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      font-size: 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .info button:hover {
+      background: #8c6a3f;
+    }
+
+    /* Animation fade-in */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  
+  <section class="catalogue">
+    <h2>Notre Catalogue de Bijoux</h2>
+    <div class="grid">
+      
+      <div class="item fade-in">
+        <img src="IMG-20250923-WA0110.jpg" alt="Collier en Diamant">
+        <div class="info">
+          <h3>Ensemble en Diamant</h3>
+          <p>450 €</p>
+          <button>Acheter</button>
+        </div>
+      </div>
+
+      <div class="item fade-in">
+        <img src="IMG-20250923-WA0116.jpg" alt="Ensemble Collier et Boucle en Or">
+        <div class="info">
+          <h3>Ensemble Collier et Boucle en Or</h3>
+          <p>350 €</p>
+          <button>Acheter</button>
+        </div>
+      </div>
+
+      <div class="item fade-in">
+        <img src="IMG-20250923-WA0109.jpg" alt="Ensemble En Jade">
+        <div class="info">
+          <h3>Ensemble En Jade</h3>
+          <p>120 €</p>
+          <button>Acheter</button>
+        </div>
+      </div>
+
+      <div class="item fade-in">
+        <img src="IMG-20250923-WA0123.jpg" alt="Ensemble En Diamant avec Teinte de Rose">
+        <div class="info">
+          <h3>Ensemble En Diamant avec Teinte de Rose</h3>
+          <p>120 €</p>
+          <button>Acheter</button>
+        </div>
+      </div>
+
+      <div class="item fade-in">
+        <img src="IMG-20250923-WA0122.jpg" alt="Ensemble En Diamant Noir">
+        <div class="info">
+          <h3>Ensemble En Diamant Noir</h3>
+          <p>120 €</p>
+          <button>Acheter</button>
+        </div>
+      </div>
+
+      <div class="item fade-in">
+        <img src="IMG-20250923-WA0118.jpg" alt="Ensemble En Saphire Violet">
+        <div class="info">
+          <h3>Ensemble En Saphire Violet</h3>
+          <p>120 €</p>
+          <button>Acheter</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Animation au scroll
+    const faders = document.querySelectorAll(".fade-in");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold: 0.2 });
+
+    faders.forEach(fade => observer.observe(fade));
+  </script>
+</body>
+</html>
+     
